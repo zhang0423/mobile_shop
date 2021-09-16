@@ -18,6 +18,9 @@ const routes = [
   {
     path: '/home',
     name: 'Home',
+    meta: {
+      tabbarShow: true
+    },
     component: Home,
     children: [
       {
@@ -30,23 +33,40 @@ const routes = [
   {
     path: '/topic',
     name: 'topic',
+    meta: {
+      tabbarShow: true
+    },
     component: () => import(/* webpackChunkName: "Topic" */ '../views/Topic.vue')
   },
   {
     path: '/category',
     name: 'Category',
+    meta: {
+      tabbarShow: true
+    },
     component: () => import(/* webpackChunkName: "Category" */ '../views/Category.vue')
   },
   {
     path: '/cart',
     name: 'Cart',
+    meta: {
+      tabbarShow: true
+    },
     component: () => import(/* webpackChunkName: "Cart" */ '../views/Cart.vue')
   },
 
   {
     path: '/user',
     name: 'User',
+    meta: {
+      tabbarShow: true
+    },
     component: () => import(/* webpackChunkName: "User" */ '../views/User.vue')
+  },
+  {
+    path: '/productdetail',
+    name: 'ProductDetail',
+    component: () => import(/* webpackChunkName: "ProductDetail" */ '../views/ProductDetail.vue')
   },
 ]
 

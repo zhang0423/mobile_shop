@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="item in goodsList" :key="item.id">
+      <li v-for="item in goodsList" :key="item.id" @click="goDetail(item.id)">
         <img
           :src="item.list_pic_url"
           alt=""
@@ -9,7 +9,7 @@
           style="display: block"
         />
         <div class="van-ellipsis">{{ item.name }}</div>
-        <div class="price">{{ item.retail_price }}</div>
+        <div class="price">{{ item.retail_price | filterMoney }}</div>
       </li>
     </ul>
   </div>
@@ -22,7 +22,11 @@ export default {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    goDetail(id) {
+      this.$router.push("/productdetail?id=" + id);
+    },
+  },
   created() {},
   mounted() {},
 };

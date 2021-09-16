@@ -15,6 +15,10 @@ import '@/vantui'
 axios.defaults.baseURL = 'http://kumanxuan1.f3322.net:8001'
 // 请求拦截器
 axios.interceptors.request.use(config => {
+  let token = localStorage.getItem('token')
+  if (token) {
+    config.headers['X-Nideshop-Token'] = token
+  }
   return config
 })
 // 响应拦截器
@@ -22,6 +26,12 @@ axios.interceptors.response.use(config => {
   return config.data
 })
 Vue.prototype.$http = axios
+
+/* 过滤器 */
+Vue.filter('filterMoney', function (val) {
+  let newVal = Number(val)
+  return '￥' + newVal.toFixed(2) + '元'
+})
 
 Vue.config.productionTip = false
 

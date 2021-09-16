@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <router-view />
-    <MyTabbar />
+    <MyTabbar v-if="$route.meta.tabbarShow" />
   </div>
 </template>
 <script>
 import MyTabbar from "./components/MyTabbar.vue";
 export default {
   components: { MyTabbar },
+  created() {},
 };
 </script>
 <style>
